@@ -1,6 +1,7 @@
 ﻿using BoredAPI_Client.Models;
 using System;
 using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace BoredAPI_Client
 {
@@ -14,5 +15,14 @@ namespace BoredAPI_Client
             throw new NotImplementedException();
         }
 
+        public void Test()
+        {
+            using(var client = new HttpClient())
+            {
+                var endpoint = new Uri("http://www.boredapi.com/api/activity/");
+                var res = client.GetAsync(endpoint).Result.Content.ReadAsStringAsync().Result;
+                Console.WriteLine(res);
+            }
+        }
     }
 }

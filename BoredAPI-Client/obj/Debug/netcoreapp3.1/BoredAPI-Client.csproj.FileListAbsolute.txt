@@ -1,0 +1,10 @@
+E:\Documents\GitHub\DotNET-API-client-homework\BoredAPI-Client\bin\Debug\netcoreapp3.1\BoredAPI-Client.deps.json
+E:\Documents\GitHub\DotNET-API-client-homework\BoredAPI-Client\bin\Debug\netcoreapp3.1\BoredAPI-Client.dll
+E:\Documents\GitHub\DotNET-API-client-homework\BoredAPI-Client\bin\Debug\netcoreapp3.1\BoredAPI-Client.pdb
+E:\Documents\GitHub\DotNET-API-client-homework\BoredAPI-Client\obj\Debug\netcoreapp3.1\BoredAPI-Client.csproj.AssemblyReference.cache
+E:\Documents\GitHub\DotNET-API-client-homework\BoredAPI-Client\obj\Debug\netcoreapp3.1\BoredAPI-Client.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\GitHub\DotNET-API-client-homework\BoredAPI-Client\obj\Debug\netcoreapp3.1\BoredAPI-Client.AssemblyInfoInputs.cache
+E:\Documents\GitHub\DotNET-API-client-homework\BoredAPI-Client\obj\Debug\netcoreapp3.1\BoredAPI-Client.AssemblyInfo.cs
+E:\Documents\GitHub\DotNET-API-client-homework\BoredAPI-Client\obj\Debug\netcoreapp3.1\BoredAPI-Client.csproj.CoreCompileInputs.cache
+E:\Documents\GitHub\DotNET-API-client-homework\BoredAPI-Client\obj\Debug\netcoreapp3.1\BoredAPI-Client.dll
+E:\Documents\GitHub\DotNET-API-client-homework\BoredAPI-Client\obj\Debug\netcoreapp3.1\BoredAPI-Client.pdb

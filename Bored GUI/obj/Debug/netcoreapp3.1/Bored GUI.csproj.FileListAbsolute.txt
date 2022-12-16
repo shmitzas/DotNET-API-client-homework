@@ -1,0 +1,16 @@
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\bin\Debug\netcoreapp3.1\Bored GUI.exe
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\bin\Debug\netcoreapp3.1\Bored GUI.deps.json
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\bin\Debug\netcoreapp3.1\Bored GUI.runtimeconfig.json
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\bin\Debug\netcoreapp3.1\Bored GUI.runtimeconfig.dev.json
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\bin\Debug\netcoreapp3.1\Bored GUI.dll
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\bin\Debug\netcoreapp3.1\Bored GUI.pdb
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\obj\Debug\netcoreapp3.1\Bored GUI.csproj.AssemblyReference.cache
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\obj\Debug\netcoreapp3.1\Bored_GUI.Form1.resources
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\obj\Debug\netcoreapp3.1\Bored GUI.csproj.GenerateResource.cache
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\obj\Debug\netcoreapp3.1\Bored GUI.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\obj\Debug\netcoreapp3.1\Bored GUI.AssemblyInfoInputs.cache
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\obj\Debug\netcoreapp3.1\Bored GUI.AssemblyInfo.cs
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\obj\Debug\netcoreapp3.1\Bored GUI.csproj.CoreCompileInputs.cache
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\obj\Debug\netcoreapp3.1\Bored GUI.dll
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\obj\Debug\netcoreapp3.1\Bored GUI.pdb
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\obj\Debug\netcoreapp3.1\Bored GUI.genruntimeconfig.cache
