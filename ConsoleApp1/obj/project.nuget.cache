@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Qa9x9g4yTEIXXmyaCEsnvdONe+oNqqTGnimv9PokE5edUATFg8XmOralRwokTjtfcGCtWtBtD+Ua2z8EVAFelQ==",
+  "success": true,
+  "projectFilePath": "E:\\Documents\\GitHub\\DotNET-API-client-homework\\ConsoleApp1\\ConsoleApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\pauli\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
+    "C:\\Users\\pauli\\.nuget\\packages\\restsharp\\108.0.3\\restsharp.108.0.3.nupkg.sha512",
+    "C:\\Users\\pauli\\.nuget\\packages\\system.text.json\\5.0.1\\system.text.json.5.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

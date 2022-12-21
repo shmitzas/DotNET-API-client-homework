@@ -1,14 +1,14 @@
-﻿using BoredAPI_Client.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//using BoredAPI_Client.Models;
+//using System;
+//using System.Collections.Generic;
+//using System.Text;
 
-namespace BoredAPI_Client
-{
-    interface IActivityProvider
-    {
-        string BaseAddress { get; }
+//namespace BoredAPI_Client
+//{
+//    interface IActivityProvider
+//    {
+//        string BaseAddress { get; }
        
-        Activity QueryResults();
-    }
-}
+//        //Activity QueryResults();
+//    }
+//}

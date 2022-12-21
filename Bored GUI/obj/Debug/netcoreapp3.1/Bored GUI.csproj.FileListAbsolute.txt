@@ -14,3 +14,9 @@ E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\obj\Debug\netcoreapp3.1
 E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\obj\Debug\netcoreapp3.1\Bored GUI.dll
 E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\obj\Debug\netcoreapp3.1\Bored GUI.pdb
 E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\obj\Debug\netcoreapp3.1\Bored GUI.genruntimeconfig.cache
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\bin\Debug\netcoreapp3.1\RestSharp.dll
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\bin\Debug\netcoreapp3.1\BoredAPI-Client.dll
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\bin\Debug\netcoreapp3.1\BoredAPI-Client.pdb
+E:\Documents\GitHub\DotNET-API-client-homework\Bored GUI\obj\Debug\netcoreapp3.1\Bored GUI.csproj.CopyComplete
