@@ -19,128 +19,47 @@ namespace Bored_GUI
         public Form1()
         {
             InitializeComponent();
+            loadingLabel.Hide();
         }
-        private ActivityProvider AP = new ActivityProvider();
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void activityList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown1_ValueChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void key_box_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+        private readonly ActivityProvider AP = new ActivityProvider();
 
         private async void button1_Click(object sender, EventArgs e)
         {
             activityList.Items.Clear();
+            loadingLabel.Show();
             ActivityModel activity = new ActivityModel();
-            if (add_key_cb.Checked)
+            if (use_key.Checked)
             {
                 activity.Key = (int)key_box.Value;
                 var res = await AP.GetTask(activity);
+                loadingLabel.Hide();
                 if (res.Activity != null)
                 {
-                    string[] row = { String.Concat(char.ToUpper(res.Type[0]), res.Type.Substring(1)), res.Participants.ToString(), res.Price.ToString(), res.Accessibility.ToString(), res.Link };
+                    string[] row = { string.Concat(char.ToUpper(res.Type[0]), res.Type[1..]), res.Participants.ToString(), res.Price.ToString(), res.Accessibility.ToString(), res.Link };
                     activityList.Items.Add(res.Activity).SubItems.AddRange(row);
                 }
                 else
                 {
-                    Debug.WriteLine("No activity found with the specified key.");
+                    MessageBox.Show($"No activity found with the specified key.\nKey: {activity.Key}", "Invalid key",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                activity.Type = activity_type_box.SelectedItem != null ? activity_type_box.SelectedItem.ToString() : "Random";
-                activity.Participants = (int)participants_num_box.Value;
-                activity.PriceMin = price_min_box.Value;
-                activity.PriceMax = price_max_box.Value;
-                activity.AccessibilityMin = acc_min_box.Value;
-                activity.AccessibilityMax = acc_max_box.Value;
-                activity.Key = null;
+                activity.Type = activity_type_box.SelectedItem != null && use_type.Checked ? activity_type_box.SelectedItem.ToString() : "Random";
+                if (use_participants.Checked) activity.Participants = (int)participants_num_box.Value;
+                if (use_price.Checked) activity.PriceMin = price_min_box.Value;
+                if (use_price.Checked) activity.PriceMax = price_max_box.Value;
+                if (use_accessibility.Checked) activity.AccessibilityMin = acc_min_box.Value;
+                if (use_accessibility.Checked) activity.AccessibilityMax = acc_max_box.Value;
                 try
                 {
                     List<ActivityModel> ResList = await AP.GetTasks(activity);
-                    foreach (var res in ResList)
-                    {
-                        
-                        if (res.Activity != null)
-                        {
-                            string[] row = { string.Concat(char.ToUpper(res.Type[0]), res.Type.Substring(1)), res.Participants.ToString(), res.Price.ToString(), res.Accessibility.ToString(), res.Link };
-                            activityList.Items.Add(res.Activity).SubItems.AddRange(row);
-                        }
-                    }
+                    DisplayResults(ResList);
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine("BTN_GetTasks\n" + ex);
+                    Debug.WriteLine(ex);
                 }
             }
         }
@@ -148,18 +67,28 @@ namespace Bored_GUI
         private async void random_activity_Click(object sender, EventArgs e)
         {
             activityList.Items.Clear();
+            loadingLabel.Show();
             try
             {
                 List<ActivityModel> ResList = await AP.GetRandomTasks();
-                foreach (var res in ResList)
-                {
-                    string[] row = { String.Concat(char.ToUpper(res.Type[0]), res.Type.Substring(1)), res.Participants.ToString(), res.Price.ToString(), res.Accessibility.ToString(), res.Link };
-                    activityList.Items.Add(res.Activity).SubItems.AddRange(row);
-                }
+                DisplayResults(ResList);
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("BTN_GetRandomTasks\n" + ex);
+                Debug.WriteLine(ex);
+            }
+        }
+
+        private void DisplayResults(List<ActivityModel> activities)
+        {
+            loadingLabel.Hide();
+            foreach (var res in activities)
+            {
+                if (res.Activity != null)
+                {
+                    string[] row = { string.Concat(char.ToUpper(res.Type[0]), res.Type[1..]), res.Participants.ToString(), res.Price.ToString(), res.Accessibility.ToString(), res.Link };
+                    activityList.Items.Add(res.Activity).SubItems.AddRange(row);
+                }
             }
         }
     }

@@ -13,7 +13,7 @@ namespace BoredAPI_Client
     public class ActivityProvider
     {
         static readonly HttpClient client = new HttpClient();
-        static readonly string BaseAddress = "http://www.boredapi.com/api/activity";
+        static readonly string BaseAddress = "http://www.boredapi.com/api/activity/?";
 
         public async Task<List<ActivityModel>> GetRandomTasks()
         {
@@ -48,23 +48,22 @@ namespace BoredAPI_Client
         public async Task<ActivityModel> GetTask(ActivityModel activity)
         {
             string ModAddress = BaseAddress;
-            if (activity.Key != null) ModAddress = BaseAddress + "?key=" + activity.Key.ToString();
+            if (activity.Key != null) ModAddress += "&key=" + activity.Key.ToString();
             else
             {
-                ModAddress +=
-                    "?participants=" + activity.Participants.ToString()
-                    + "&minaccessibility=" + activity.AccessibilityMin.ToString()
-                    + "&maxaccessibility=" + activity.AccessibilityMax.ToString()
-                    + "&minprice=" + activity.PriceMin.ToString()
-                    + "&maxprice=" + activity.PriceMax.ToString();
                 if (activity.Type != "Random") ModAddress += "&type=" + activity.Type.ToString().ToLower();
+                if (activity.Participants != null) ModAddress += "&participants=" + activity.Participants.ToString();
+                if (activity.AccessibilityMin != null) ModAddress += "&minaccessibility=" + activity.AccessibilityMin.ToString();
+                if (activity.AccessibilityMax != null) ModAddress += "&maxaccessibility=" + activity.AccessibilityMax.ToString();
+                if (activity.PriceMin != null) ModAddress += "&minprice=" + activity.PriceMin.ToString();
+                if (activity.PriceMax != null) ModAddress += "&maxprice=" + activity.PriceMax.ToString();
             }
 
             var response = await client.GetStringAsync(ModAddress);
             ActivityModel result = null;
             if (response != null)
                 result = JsonConvert.DeserializeObject<ActivityModel>(response);
-
+            Debug.WriteLine($"Query: {ModAddress}\nResult:{result.GetActivityDetails()}");
             return result;
         }
     }

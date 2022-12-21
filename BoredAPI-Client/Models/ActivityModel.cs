@@ -10,13 +10,13 @@ namespace BoredAPI_Client.Models
     {
         public string Activity { get; set; }
         public decimal Accessibility { get; set; }
-        public decimal AccessibilityMin { get; set; }
-        public decimal AccessibilityMax { get; set; }
+        public decimal? AccessibilityMin { get; set; }
+        public decimal? AccessibilityMax { get; set; }
         public string Type { get; set; }
-        public int Participants { get; set; }
+        public int? Participants { get; set; }
         public decimal Price { get; set; }
-        public decimal PriceMin { get; set; }
-        public decimal PriceMax { get; set; }
+        public decimal? PriceMin { get; set; }
+        public decimal? PriceMax { get; set; }
         public string Link { get; set; }
         public int? Key { get; set; }
 
