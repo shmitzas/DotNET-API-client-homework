@@ -7,64 +7,82 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Diagnostics;
 using System.Linq;
+using BoredAPI_Client.Interfaces;
 
 namespace BoredAPI_Client
 {
-    public class ActivityProvider
+    public class ActivityProvider : IActivityProvider
     {
         static readonly HttpClient client = new HttpClient();
+        static readonly FakeAPI fakeClient = new FakeAPI();
         static readonly string BaseAddress = "http://www.boredapi.com/api/activity/?";
 
-        public async Task<List<ActivityModel>> GetRandomTasks(int limit)
+        public async Task<List<ActivityModel>> GetTasks(ActivityModel act = null, int limit = 1, bool test = false)
         {
             List<ActivityModel> activities = new List<ActivityModel>();
+            ActivityModel task;
             for (int i = 0; i < limit; i++)
             {
-                var task = await GetRandomTask();
-                if (task != null) activities.Add(task);
+                if (test)
+                {
+                    if (act == null) task = fakeClient.GetTask();
+                    else
+                    {
+                        task = fakeClient.GetTask(
+                        type: act.Type,
+                        participants: act.Participants,
+                        accessMin: act.AccessibilityMin,
+                        accessMax: act.AccessibilityMax,
+                        priceMin: act.PriceMin,
+                        priceMax: act.PriceMax,
+                        price: act.Price,
+                        access: act.Accessibility);
+                    }
+                    if (task != null) activities.Add(task);
+                }
+                else
+                {
+                    if (act == null) task = await GetTask();
+                    else
+                    {
+                        task = await GetTask(
+                        type: act.Type,
+                        participants: act.Participants,
+                        accessMin: act.AccessibilityMin,
+                        accessMax: act.AccessibilityMax,
+                        priceMin: act.PriceMin,
+                        priceMax: act.PriceMax,
+                        price: act.Price,
+                        access: act.Accessibility);
+                    }
+                    if (task != null) activities.Add(task);
+                }
             }
             return activities;
         }
 
-        public async Task<ActivityModel> GetRandomTask()
+        public async Task<ActivityModel> GetTaskByKey(int key, bool test = false)
         {
-            ActivityModel result = null;
-            string response = await client.GetStringAsync(BaseAddress);
-            if (response != null)
-                result = JsonConvert.DeserializeObject<ActivityModel>(response);
-            return result;
-        }
-        public async Task<List<ActivityModel>> GetTasks(ActivityModel activity, int limit)
-        {
-            List<ActivityModel> activities = new List<ActivityModel>();
-            for (int i = 0; i < limit; i++)
-            {
-                var task = await GetTask(activity);
-                if (task != null) activities.Add(task);
-            }
-            return activities;
+            string? response = null;
+            if (test)       
+                return fakeClient.GetTaskByKey(key);
+            else 
+                response = await client.GetStringAsync(BaseAddress + "&key=" + key.ToString().ToLower());
+            return response != null ? JsonConvert.DeserializeObject<ActivityModel>(response) : new ActivityModel { };
         }
 
-        public async Task<ActivityModel> GetTask(ActivityModel activity)
+        public async Task<ActivityModel> GetTask(string type = null, int? participants = null, decimal? access = null, decimal? accessMin = null, decimal? accessMax = null, decimal? price = null, decimal? priceMin = null, decimal? priceMax = null)
         {
             string ModAddress = BaseAddress;
-            if (activity.Key != null) ModAddress += "&key=" + activity.Key.ToString();
-            else
-            {
-                if (activity.Type != "Random") ModAddress += "&type=" + activity.Type.ToString().ToLower();
-                if (activity.Participants != null) ModAddress += "&participants=" + activity.Participants.ToString();
-                if (activity.AccessibilityMin != null) ModAddress += "&minaccessibility=" + activity.AccessibilityMin.ToString();
-                if (activity.AccessibilityMax != null) ModAddress += "&maxaccessibility=" + activity.AccessibilityMax.ToString();
-                if (activity.PriceMin != null) ModAddress += "&minprice=" + activity.PriceMin.ToString();
-                if (activity.PriceMax != null) ModAddress += "&maxprice=" + activity.PriceMax.ToString();
-            }
+            if (type != "Random" && type != null) ModAddress += "&type=" + type.ToString().ToLower();
+            if (participants != null) ModAddress += "&participants=" + participants.ToString();
+            if (accessMin != null) ModAddress += "&minaccessibility=" + accessMin.ToString();
+            if (accessMax != null) ModAddress += "&maxaccessibility=" + accessMax.ToString();
+            if (priceMin != null) ModAddress += "&minprice=" + priceMin.ToString();
+            if (priceMax != null) ModAddress += "&maxprice=" + priceMax.ToString();
 
             var response = await client.GetStringAsync(ModAddress);
-            ActivityModel result = null;
-            if (response != null)
-                result = JsonConvert.DeserializeObject<ActivityModel>(response);
-            Debug.WriteLine($"Query: {ModAddress}\nResult:{result.GetActivityDetails()}");
-            return result;
+            return response != null ? JsonConvert.DeserializeObject<ActivityModel>(response) : new ActivityModel { };
         }
     }
 }

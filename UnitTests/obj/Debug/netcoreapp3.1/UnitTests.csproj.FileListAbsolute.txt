@@ -100,3 +100,8 @@ E:\Documents\GitHub\DotNET-API-client-homework\UnitTests\obj\Debug\netcoreapp3.1
 E:\Documents\GitHub\DotNET-API-client-homework\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.dll
 E:\Documents\GitHub\DotNET-API-client-homework\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.pdb
 E:\Documents\GitHub\DotNET-API-client-homework\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.genruntimeconfig.cache
+E:\Documents\GitHub\DotNET-API-client-homework\UnitTests\bin\Debug\netcoreapp3.1\CoverletSourceRootsMapping
+E:\Documents\GitHub\DotNET-API-client-homework\UnitTests\bin\Debug\netcoreapp3.1\RestSharp.dll
+E:\Documents\GitHub\DotNET-API-client-homework\UnitTests\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+E:\Documents\GitHub\DotNET-API-client-homework\UnitTests\bin\Debug\netcoreapp3.1\BoredAPI-Client.dll
+E:\Documents\GitHub\DotNET-API-client-homework\UnitTests\bin\Debug\netcoreapp3.1\BoredAPI-Client.pdb

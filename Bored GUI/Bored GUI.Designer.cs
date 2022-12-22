@@ -315,7 +315,7 @@ namespace Bored_GUI
             1,
             0,
             0,
-            131072});
+            65536});
             this.accMaxBox.Location = new System.Drawing.Point(267, 89);
             this.accMaxBox.Maximum = new decimal(new int[] {
             1,
@@ -338,7 +338,7 @@ namespace Bored_GUI
             1,
             0,
             0,
-            131072});
+            65536});
             this.accMinBox.Location = new System.Drawing.Point(195, 89);
             this.accMinBox.Maximum = new decimal(new int[] {
             1,
@@ -374,7 +374,7 @@ namespace Bored_GUI
             1,
             0,
             0,
-            131072});
+            65536});
             this.priceMaxBox.Location = new System.Drawing.Point(84, 89);
             this.priceMaxBox.Maximum = new decimal(new int[] {
             1,
@@ -397,7 +397,7 @@ namespace Bored_GUI
             1,
             0,
             0,
-            131072});
+            65536});
             this.priceMinBox.Location = new System.Drawing.Point(12, 89);
             this.priceMinBox.Maximum = new decimal(new int[] {
             1,

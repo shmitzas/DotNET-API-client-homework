@@ -32,8 +32,8 @@ namespace Bored_GUI
             ActivityModel activity = new ActivityModel();
             if (useKey.Checked)
             {
-                activity.Key = (int)keyBox.Value;
-                var res = await AP.GetTask(activity);
+                var key = (int)keyBox.Value;
+                var res = await AP.GetTaskByKey(key);
                 loadingLabel.Hide();
                 if (res.Activity != null)
                 {
@@ -42,7 +42,7 @@ namespace Bored_GUI
                 }
                 else
                 {
-                    MessageBox.Show($"No activity found with the specified key.\nKey: {activity.Key}", "Invalid key",
+                    MessageBox.Show($"No activity found with the specified key.\nKey: {key}", "Invalid key",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
@@ -72,7 +72,8 @@ namespace Bored_GUI
             loadingLabel.Show();
             try
             {
-                List<ActivityModel> ResList = await AP.GetRandomTasks(limitResults.Checked ? (int)resultLimit.Value : 1);
+                
+                List<ActivityModel> ResList = await AP.GetTasks(new ActivityModel { },limitResults.Checked ? (int)resultLimit.Value : 1);
                 DisplayResults(ResList);
             }
             catch (Exception ex)

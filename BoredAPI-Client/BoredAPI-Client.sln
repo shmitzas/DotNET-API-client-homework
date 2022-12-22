@@ -4,15 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoredAPI-Client", "BoredAPI-Client.csproj", "{53E4978D-8B07-4EC3-BB8B-34B9A5F6C5F7}"
-	ProjectSection(ProjectDependencies) = postProject
-		{4199434B-0C7B-440F-BB5E-6F1F41887F54} = {4199434B-0C7B-440F-BB5E-6F1F41887F54}
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "..\UnitTests\UnitTests.csproj", "{4199434B-0C7B-440F-BB5E-6F1F41887F54}"
+	ProjectSection(ProjectDependencies) = postProject
+		{53E4978D-8B07-4EC3-BB8B-34B9A5F6C5F7} = {53E4978D-8B07-4EC3-BB8B-34B9A5F6C5F7}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bored GUI", "..\Bored GUI\Bored GUI.csproj", "{B0601E7F-73A3-44F5-A336-F568CF98A273}"
 	ProjectSection(ProjectDependencies) = postProject
-		{4199434B-0C7B-440F-BB5E-6F1F41887F54} = {4199434B-0C7B-440F-BB5E-6F1F41887F54}
 		{53E4978D-8B07-4EC3-BB8B-34B9A5F6C5F7} = {53E4978D-8B07-4EC3-BB8B-34B9A5F6C5F7}
 	EndProjectSection
 EndProject
