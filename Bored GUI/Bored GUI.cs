@@ -18,12 +18,12 @@ namespace Bored_GUI
 {
     public partial class Form1 : Form
     {
+        private readonly ActivityProvider AP = new ActivityProvider();
         public Form1()
         {
             InitializeComponent();
             loadingLabel.Hide();
         }
-        private readonly ActivityProvider AP = new ActivityProvider();
 
         private async void button1_Click(object sender, EventArgs e)
         {
@@ -61,7 +61,8 @@ namespace Bored_GUI
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine(ex);
+                    MessageBox.Show($"An error occured.\nError: {ex}", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -72,13 +73,13 @@ namespace Bored_GUI
             loadingLabel.Show();
             try
             {
-                
                 List<ActivityModel> ResList = await AP.GetTasks(new ActivityModel { },limitResults.Checked ? (int)resultLimit.Value : 1);
                 DisplayResults(ResList);
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex);
+                MessageBox.Show($"An error occured.\nError: {ex}", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -93,21 +94,6 @@ namespace Bored_GUI
                     activityList.Items.Add(res.Activity).SubItems.AddRange(row);
                 }
             }
-        }
-
-        private void loadingLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void activityList_DoubleClick(object sender, EventArgs e)

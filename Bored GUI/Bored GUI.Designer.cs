@@ -178,7 +178,6 @@ namespace Bored_GUI
             this.label10.Size = new System.Drawing.Size(85, 15);
             this.label10.TabIndex = 25;
             this.label10.Text = "Limit results to";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // button1
             // 
@@ -430,7 +429,7 @@ namespace Bored_GUI
             "Cooking",
             "Relaxation",
             "Music",
-            "Busy work"});
+            "Busywork"});
             this.activityTypeBox.Location = new System.Drawing.Point(195, 27);
             this.activityTypeBox.Name = "activityTypeBox";
             this.activityTypeBox.Size = new System.Drawing.Size(126, 23);
@@ -445,7 +444,6 @@ namespace Bored_GUI
             this.label1.Size = new System.Drawing.Size(73, 15);
             this.label1.TabIndex = 3;
             this.label1.Text = "Activity type";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -491,7 +489,6 @@ namespace Bored_GUI
             this.loadingLabel.TabIndex = 1;
             this.loadingLabel.Text = "Loading, please wait...";
             this.loadingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.loadingLabel.Click += new System.EventHandler(this.loadingLabel_Click);
             // 
             // label9
             // 

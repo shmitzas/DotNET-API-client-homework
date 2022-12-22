@@ -22,6 +22,7 @@ namespace UnitTests
             ActivityProvider AP = new ActivityProvider();
             ActivityModel act = new ActivityModel();
             act.Type = "Activity";
+
             var res = AP.GetTasks(act, test: true);
             Assert.That(res.Result[0].Type, Is.EqualTo("Activity"));
             Assert.Pass();
@@ -32,9 +33,7 @@ namespace UnitTests
             ActivityProvider AP = new ActivityProvider();
             ActivityModel act = new ActivityModel();
             act.Participants = 1;
-            //FakeAPI faki= new FakeAPI();
-            //var res = faki.GetTask(participants: 1);
-            //Assert.That(res.Participants, Is.EqualTo(1));
+
             var res = AP.GetTasks(act, test: true);
             Assert.That(res.Result[0].Participants, Is.EqualTo(1));
             Assert.Pass();
