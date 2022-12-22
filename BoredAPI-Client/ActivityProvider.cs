@@ -15,10 +15,10 @@ namespace BoredAPI_Client
         static readonly HttpClient client = new HttpClient();
         static readonly string BaseAddress = "http://www.boredapi.com/api/activity/?";
 
-        public async Task<List<ActivityModel>> GetRandomTasks()
+        public async Task<List<ActivityModel>> GetRandomTasks(int limit)
         {
             List<ActivityModel> activities = new List<ActivityModel>();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < limit; i++)
             {
                 var task = await GetRandomTask();
                 if (task != null) activities.Add(task);
@@ -34,10 +34,10 @@ namespace BoredAPI_Client
                 result = JsonConvert.DeserializeObject<ActivityModel>(response);
             return result;
         }
-        public async Task<List<ActivityModel>> GetTasks(ActivityModel activity)
+        public async Task<List<ActivityModel>> GetTasks(ActivityModel activity, int limit)
         {
             List<ActivityModel> activities = new List<ActivityModel>();
-            for(int i=0; i<10; i++)
+            for (int i = 0; i < limit; i++)
             {
                 var task = await GetTask(activity);
                 if (task != null) activities.Add(task);
